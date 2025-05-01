@@ -250,3 +250,14 @@ button {
     bottom: 0px;
     color: var(--footer-text-color)
 }
+
+
+
+
+
+@media (max-width: 600px) {
+    body {
+        overscroll-behavior: none;
+        touch-action: manipulation;
+      }
+}
