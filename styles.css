@@ -3,7 +3,7 @@
         45deg,
         hsl(0deg 0% 4%) 0%,
         hsl(226deg 4% 6%) 20%,
-        hsl(226deg 5% 7%) 40%,
+        #111113 40%,
         hsl(226deg 6% 8%) 60%,
         hsl(225deg 7% 9%) 80%,
         hsl(225deg 8% 10%) 100%
@@ -27,6 +27,8 @@
     --theme-switch-color: rgb(40, 40, 40);
     --theme-switch-svg: rgb(144, 144, 144);
     --footer-text-color: rgb(58, 59, 65);
+    --footer-color: #121214;
+    --html-color: #121214;
 }
 
 .lightmode {
@@ -60,6 +62,8 @@
     --theme-switch-color: rgb(187, 187, 187);
     --theme-switch-svg: rgb(85, 85, 85);
     --footer-text-color: rgb(0, 0, 0);
+    --footer-color: rgb(175, 173, 173);
+    --html-color: rgb(175, 173, 173);
 }
 
 *{
@@ -70,14 +74,15 @@
     box-sizing: border-box;
 }
 
-html, body {
+html {
+    background-color: var(--html-color);
+}
+
+body {
     margin: 0px;
     padding: 0px;
     background-image: var(--body-background-color);
     min-height: 100vh;
-    overflow: hidden;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .topbody {
@@ -248,16 +253,7 @@ button {
     width: 100%;
     position: fixed;
     bottom: 0px;
-    color: var(--footer-text-color)
-}
-
-
-
-
-
-@media (max-width: 600px) {
-    body {
-        overscroll-behavior: none;
-        touch-action: manipulation;
-      }
+    padding: 3px;
+    color: var(--footer-text-color);
+    background-color: var(--footer-color);
 }
