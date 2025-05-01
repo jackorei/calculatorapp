@@ -26,6 +26,7 @@
     --top-input-color: rgba(144, 144, 144, 0.717);
     --theme-switch-color: rgb(40, 40, 40);
     --theme-switch-svg: rgb(144, 144, 144);
+    --footer-text-color: rgb(58, 59, 65);
 }
 
 .lightmode {
@@ -58,6 +59,7 @@
     --top-input-color: rgba(29, 26, 26, 0.717);
     --theme-switch-color: rgb(187, 187, 187);
     --theme-switch-svg: rgb(85, 85, 85);
+    --footer-text-color: rgb(0, 0, 0);
 }
 
 *{
@@ -68,11 +70,14 @@
     box-sizing: border-box;
 }
 
-body {
+html, body {
     margin: 0px;
     padding: 0px;
     background-image: var(--body-background-color);
     min-height: 100vh;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .topbody {
@@ -124,10 +129,10 @@ body {
 }
 
 .midbody {
-    margin-top: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: calc(100vh - 150px); 
 }
 
 .calculator {
@@ -243,4 +248,5 @@ button {
     width: 100%;
     position: fixed;
     bottom: 0px;
+    color: var(--footer-text-color)
 }
