@@ -13,44 +13,82 @@ const multiplyb = document.querySelector('#multiply')
 const oneb = document.querySelector('#one')
 const twob = document.querySelector('#two')
 const threeb = document.querySelector('#three')
-const divideb = document.querySelector('#divideb')
+const divideb = document.querySelector('#divide')
 const zerob = document.querySelector('#zero')
 const decimalb = document.querySelector('#decimal')
 const equalsb = document.querySelector('#equals')
+const subtractb = document.querySelector('#subtract')
 
 // display divs 
 const topinput = document.querySelector(".topinput")
 const maininput = document.querySelector(".maininput")
 
-// number button click to display
+// variables
+let currentNumber = "";         // The number being typed in right now (as a string)
+let firstOperand = null;        // First number in the operation
+let secondOperand = null;       // Second number in the operation
+let currentOperator = null;     // The selected operator (+, -, etc.)
+let shouldResetScreen = false; 
+
+// function for adding onto/making currentnumber
+function handleInput(digit) {
+    currentNumber += digit
+    maininput.textContent = currentNumber
+}
+
+// handleInput function inputs (click)
 oneb.addEventListener('click', () => {
-    maininput.textContent = '1'
+    handleInput(1)
 })
 twob.addEventListener('click', () => {
-    maininput.textContent = '2'
+    handleInput(2)
 })
 threeb.addEventListener('click', () => {
-    maininput.textContent = '3'
+    handleInput(3)
 })
 fourb.addEventListener('click', () => {
-    maininput.textContent = '4'
+    handleInput(4)
 })
 fiveb.addEventListener('click', () => {
-    maininput.textContent = '5'
+    handleInput(5)
 })
 sixb.addEventListener('click', () => {
-    maininput.textContent = '6'
+    handleInput(6)
 })
 sevenb.addEventListener('click', () => {
-    maininput.textContent = '7'
+    handleInput(7)
 })
 eightb.addEventListener('click', () => {
-    maininput.textContent = '8'
+    handleInput(8)
 })
 nineb.addEventListener('click', () => {
-    maininput.textContent = '9'
+    handleInput(9)
 })
 zerob.addEventListener('click', () => {
-    maininput.textContent = '0'
+    handleInput(0)
 })
+
+// operator click input
+
+function operatorInput(operator) {
+    firstOperand = currentNumber
+    operatorChoice = operator
+
+    topinput.textContent = `${currentNumber} ${operator}`
+}
+
+addb.addEventListener('click', () => {
+    operatorInput('+')
+})
+subtractb.addEventListener('click', () => {
+    operatorInput('-')
+})
+divideb.addEventListener('click', () => {
+    operatorInput('÷')
+})
+multiplyb.addEventListener('click', () => {
+    operatorInput('×')
+})
+
+
 
