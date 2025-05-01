@@ -1,0 +1,233 @@
+:root{
+    --body-background-color: linear-gradient(
+        45deg,
+        hsl(0deg 0% 4%) 0%,
+        hsl(226deg 4% 6%) 20%,
+        hsl(226deg 5% 7%) 40%,
+        hsl(226deg 6% 8%) 60%,
+        hsl(225deg 7% 9%) 80%,
+        hsl(225deg 8% 10%) 100%
+      );
+    --title-color: radial-gradient(#eeeeee, rgba(255, 230, 128, 0) 40%), conic-gradient(from 90deg at 70% 100%, #e4e4e4, #d0d0d0, #848484, #bdbdbd, #e8e8e8, #b0b0b0, #d5d5d5);
+    --calc-background-color: linear-gradient(
+        45deg,
+        hsl(240deg 5% 12%) 5%,
+        hsl(240deg 5% 12%) 41%,
+        hsl(240deg 5% 13%) 64%,
+        hsl(240deg 5% 13%) 82%,
+        hsl(240deg 5% 13%) 95%,
+        hsl(240deg 5% 13%) 100%
+      );
+    --button-border-color: 2px solid rgba(0, 0, 0, 0.244);
+    --button-text-color: white;
+    --button-active-color: rgb(127, 127, 127);
+    --equals-button-color: #2e53c0;
+    --main-input-color: white;
+    --top-input-color: rgba(144, 144, 144, 0.717);
+    --theme-switch-color: rgb(40, 40, 40);
+    --theme-switch-svg: rgb(144, 144, 144);
+}
+
+.lightmode {
+    --body-background-color: linear-gradient(
+        45deg,
+        hsl(0deg 0% 69%) 0%,
+        hsl(344deg 0% 73%) 15%,
+        hsl(344deg 0% 77%) 31%,
+        hsl(344deg 0% 82%) 47%,
+        hsl(344deg 0% 86%) 62%,
+        hsl(344deg 0% 91%) 76%,
+        hsl(344deg 0% 95%) 89%,
+        hsl(0deg 0% 100%) 100%
+      );
+    --title-color: radial-gradient(#000000, rgba(255, 230, 128, 0) 40%), conic-gradient(from 90deg at 70% 100%, #121212, #1a1a1a, #1d1d1d, #212121, #1f1f1f, #080808, #222222);
+    --calc-background-color: linear-gradient(
+        45deg,
+        hsl(0deg 0% 71%) 0%,
+        hsl(344deg 0% 72%) 13%,
+        hsl(344deg 0% 73%) 27%,
+        hsl(344deg 0% 74%) 42%,
+        hsl(344deg 0% 75%) 63%,
+        hsl(0deg 0% 76%) 100%
+      );
+    --button-border-color: 2px solid rgba(0, 0, 0, 0.244);
+    --button-text-color: rgb(0, 0, 0);
+    --button-active-color: rgba(111, 111, 111, 0.475);
+    --equals-button-color: #ffffff51;
+    --main-input-color: rgb(0, 0, 0);
+    --top-input-color: rgba(29, 26, 26, 0.717);
+    --theme-switch-color: rgb(187, 187, 187);
+    --theme-switch-svg: rgb(85, 85, 85);
+}
+
+*{
+    list-style: none;
+    text-decoration: none;
+    font-family: "Outfit", sans-serif;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-image: var(--body-background-color);
+    min-height: 100vh;
+}
+
+.topbody {
+    font-size: 40px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#emptydiv1 {
+    width: 40px;
+    height: 40px;
+}
+
+#themeswitcher {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--theme-switch-color);
+    cursor: pointer;
+}
+
+#themeswitcher svg{
+    fill: var(--theme-switch-svg)
+}
+
+#themeswitcher svg:first-child{
+    display: none;
+}
+
+.lightmode #themeswitcher svg:last-child{
+    display: none;
+}
+.lightmode #themeswitcher svg:first-child{
+    display: inline-block;
+}
+
+
+.title {
+    color: initial;
+    background-color: #000000;
+    background-image: var(--title-color);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.midbody {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculator {
+    background-image: var(--calc-background-color);
+    width: 300px;
+    height: 540px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.calcdisplay {
+    width: 300px;
+    height: 150px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.buttons {
+    border-top: var(--button-border-color);
+    width: 300px;
+    height: 390px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.calcbutton {
+    font-size: 30px;
+    width: 70px;
+    height: 70px;
+    background-color: #19191b00;
+    color: var(--button-text-color);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.calcbutton:active {
+    color: var(--button-active-color);
+}
+
+#equals {
+    width: 140px;
+    background-color: var(--equals-button-color);
+}
+
+button {
+    border: 0px;
+}
+
+.row1 {
+    display: flex;
+    gap: 3px;
+}
+
+.row2 {
+    display: flex;
+    gap: 3px;
+}
+
+.row3 {
+    display: flex;
+    gap: 3px;
+}
+
+.row4 {
+    display: flex;
+    gap: 3px;
+}
+
+.row5 {
+    display: flex;
+    gap: 3px;
+}
+
+
+.maininput {
+    color: var(--main-input-color);
+    font-size: 50px;
+}
+
+.topinput {
+    color: var(--top-input-color);
+    font-size: 25px;
+
+}
+
+.topdisplay {
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.maindisplay {
+    margin-left: auto;
+    margin-right: 20px;
+}
