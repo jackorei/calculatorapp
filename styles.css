@@ -190,6 +190,8 @@ body {
     cursor: pointer;
 }
 
+
+
 .calcbutton:active {
     color: var(--button-active-color);
 }
