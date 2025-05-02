@@ -8,7 +8,7 @@
         hsl(225deg 7% 9%) 80%,
         hsl(225deg 8% 10%) 100%
       );
-    --title-color: radial-gradient(#eeeeee, rgba(255, 230, 128, 0) 40%), conic-gradient(from 90deg at 70% 100%, #e4e4e4, #d0d0d0, #848484, #bdbdbd, #e8e8e8, #b0b0b0, #d5d5d5);
+    --title-color: radial-gradient(#eeeeee, rgba(255, 230, 128, 0) 40%), conic-gradient(from 90deg at 70% 100%, #e4e4e4, #d0d0d0, #848484, #bdbdbd, #797979, #b0b0b0, #d5d5d5);
     --calc-background-color: linear-gradient(
         45deg,
         hsl(240deg 5% 12%) 5%,
@@ -30,6 +30,7 @@
     --footer-color: #121214;
     --html-color: #121214;
     --clear-color: rgb(210, 102, 102);
+    --clear-color-active:rgb(137, 64, 64);
 }
 
 .lightmode {
@@ -44,7 +45,7 @@
         hsl(344deg 0% 95%) 89%,
         hsl(0deg 0% 100%) 100%
       );
-    --title-color: radial-gradient(#000000, rgba(255, 230, 128, 0) 40%), conic-gradient(from 90deg at 70% 100%, #121212, #1a1a1a, #1d1d1d, #212121, #1f1f1f, #080808, #222222);
+    --title-color: radial-gradient(#000000, rgba(255, 230, 128, 0) 40%), conic-gradient(from 90deg at 70% 100%, #121212, #1a1a1a, #1d1d1d, #262626, #979797, #080808, #222222);
     --calc-background-color: linear-gradient(
         45deg,
         hsl(0deg 0% 71%) 0%,
@@ -66,6 +67,7 @@
     --footer-color: rgb(175, 173, 173);
     --html-color: rgb(175, 173, 173);
     --clear-color: rgb(181, 64, 64);
+    --clear-color-active: rgb(123, 42, 42);
 }
 
 *{
@@ -261,4 +263,8 @@ button {
 
 #clear {
     color: var(--clear-color);
+}
+
+#clear:active {
+    color: var(--clear-color-active)
 }

@@ -24,10 +24,10 @@ const topinput = document.querySelector(".topinput")
 const maininput = document.querySelector(".maininput")
 
 // variables
-let currentNumber = "";         // The number being typed in right now (as a string)
-let firstOperand = null;        // First number in the operation
-let secondOperand = null;       // Second number in the operation
-let currentOperator = null;     // The selected operator (+, -, etc.)
+let currentNumber = "";         
+let firstOperand = null;        
+let secondOperand = null;       
+let currentOperator = null;     
 let shouldResetScreen = false; 
 
 // function for adding onto/making currentnumber
@@ -37,8 +37,6 @@ function handleInput(digit) {
         shouldResetScreen = false
     }
     currentNumber += digit
-    if (currentNumber > 99999999) {
-    }
     maininput.textContent = currentNumber
 }
 
@@ -73,15 +71,32 @@ nineb.addEventListener('click', () => {
 zerob.addEventListener('click', () => {
     handleInput(0)
 })
+decimalb.addEventListener('click', () => {
+    if (shouldResetScreen) {
+        currentNumber = '0'
+        shouldResetScreen = false
+    }
+    if (!currentNumber.includes('.')) {
+        currentNumber += '.'
+        maininput.textContent = currentNumber
+    }
+})
 
 // operator click input
 
 function operatorInput(operator) {
-    
-    shouldResetScreen = true
-    firstOperand = currentNumber
-    currentOperator = operator
-    topinput.textContent = `${currentNumber} ${currentOperator}`
+    if (currentOperator !== null && firstOperand !== null) {
+        firstOperand = operate(firstOperand, currentNumber, currentOperator)
+        currentOperator = operator
+        shouldResetScreen = true
+        topinput.textContent = `${firstOperand} ${currentOperator}`
+    }
+    else {
+        shouldResetScreen = true
+        currentOperator = operator
+        firstOperand = currentNumber
+        topinput.textContent = `${currentNumber} ${currentOperator}`
+    }
 }
 
 addb.addEventListener('click', () => {
@@ -117,35 +132,42 @@ signb.addEventListener('click', () => {
 
 
 equalsb.addEventListener('click', () => {
-    secondOperand = currentNumber
-    operate(firstOperand, secondOperand, currentOperator)
+    if (firstOperand !== null && currentOperator !== null) {
+        secondOperand = currentNumber;
+        const result = operate(firstOperand, secondOperand, currentOperator)
+        firstOperand = result;
+        currentOperator = null;
+        currentNumber = result.toString();
+        shouldResetScreen = true;
+    }
 })
 
 
 function operate(num1, num2, op) {
         if (currentOperator === '+') {
             topinput.textContent = `${num1} ${op} ${num2} =`
-            maininput.textContent = parseFloat(num1) + parseInt(num2)
+            maininput.textContent = parseFloat(num1) + parseFloat(num2)
+            return parseFloat(num1) + parseInt(num2)
         }
         else if (currentOperator === '-') {
             topinput.textContent = `${num1} ${op} ${num2} =`
-            maininput.textContent = parseFloat(num1) - parseInt(num2)
+            maininput.textContent = parseFloat(num1) - parseFloat(num2)
+            return parseFloat(num1) - parseInt(num2)
         }
         else if (currentOperator === '÷') {
             topinput.textContent = `${num1} ${op} ${num2} =`
-            maininput.textContent = parseFloat(num1) / parseInt(num2)
+            maininput.textContent = parseFloat(num1) / parseFloat(num2)
+            return parseFloat(num1) / parseInt(num2)
         }
         else if (currentOperator === '×') {
             topinput.textContent = `${num1} ${op} ${num2} =`
-            maininput.textContent = parseFloat(num1) * parseInt(num2)
+            maininput.textContent = parseFloat(num1) * parseFloat(num2)
+            return parseFloat(num1) * parseInt(num2)
         }
         else if (currentOperator === '%') {
             topinput.textContent = `${num1} ${op} =`
             maininput.textContent = parseFloat(num1) / 100
-        }
-        else if (currentOperator === '×') {
-            topinput.textContent = `${num1} ${op} ${num2} =`
-            maininput.textContent = parseFloat(num1) * parseInt(num2)
+            return parseFloat(num1) / 100
         }
         else {
             topinput.textContent = 'Error'
