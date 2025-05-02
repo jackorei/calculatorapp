@@ -32,7 +32,13 @@ let shouldResetScreen = false;
 
 // function for adding onto/making currentnumber
 function handleInput(digit) {
+    if (shouldResetScreen) {
+        currentNumber = ''
+        shouldResetScreen = false
+    }
     currentNumber += digit
+    if (currentNumber > 99999999) {
+    }
     maininput.textContent = currentNumber
 }
 
@@ -71,24 +77,86 @@ zerob.addEventListener('click', () => {
 // operator click input
 
 function operatorInput(operator) {
+    
+    shouldResetScreen = true
     firstOperand = currentNumber
-    operatorChoice = operator
-
-    topinput.textContent = `${currentNumber} ${operator}`
+    currentOperator = operator
+    topinput.textContent = `${currentNumber} ${currentOperator}`
 }
 
 addb.addEventListener('click', () => {
     operatorInput('+')
+    maininput.textContent = '‎ '
 })
 subtractb.addEventListener('click', () => {
     operatorInput('-')
+    maininput.textContent = '‎ '
 })
 divideb.addEventListener('click', () => {
     operatorInput('÷')
+    maininput.textContent = '‎ '
 })
 multiplyb.addEventListener('click', () => {
     operatorInput('×')
+    maininput.textContent = '‎ '
+})
+percentb.addEventListener('click', () => {
+    operatorInput('%')
+    maininput.textContent = '‎ '
+})
+
+signb.addEventListener('click', () => {
+    if (currentNumber.startsWith('-')) {
+        currentNumber = currentNumber.slice(1);
+    } else {
+        currentNumber = '-' + currentNumber;
+    }
+    maininput.textContent = currentNumber;
 })
 
 
 
+equalsb.addEventListener('click', () => {
+    secondOperand = currentNumber
+    operate(firstOperand, secondOperand, currentOperator)
+})
+
+
+function operate(num1, num2, op) {
+        if (currentOperator === '+') {
+            topinput.textContent = `${num1} ${op} ${num2} =`
+            maininput.textContent = parseFloat(num1) + parseInt(num2)
+        }
+        else if (currentOperator === '-') {
+            topinput.textContent = `${num1} ${op} ${num2} =`
+            maininput.textContent = parseFloat(num1) - parseInt(num2)
+        }
+        else if (currentOperator === '÷') {
+            topinput.textContent = `${num1} ${op} ${num2} =`
+            maininput.textContent = parseFloat(num1) / parseInt(num2)
+        }
+        else if (currentOperator === '×') {
+            topinput.textContent = `${num1} ${op} ${num2} =`
+            maininput.textContent = parseFloat(num1) * parseInt(num2)
+        }
+        else if (currentOperator === '%') {
+            topinput.textContent = `${num1} ${op} =`
+            maininput.textContent = parseFloat(num1) / 100
+        }
+        else if (currentOperator === '×') {
+            topinput.textContent = `${num1} ${op} ${num2} =`
+            maininput.textContent = parseFloat(num1) * parseInt(num2)
+        }
+        else {
+            topinput.textContent = 'Error'
+        }
+}
+clearb.addEventListener('click', () => {
+    currentNumber = "";         
+    firstOperand = null;        
+    secondOperand = null;       
+    currentOperator = null;
+    shouldResetScreen = false;
+    topinput.textContent = ''
+    maininput.textContent = ''
+})

@@ -29,6 +29,7 @@
     --footer-text-color: rgb(58, 59, 65);
     --footer-color: #121214;
     --html-color: #121214;
+    --clear-color: rgb(210, 102, 102);
 }
 
 .lightmode {
@@ -64,6 +65,7 @@
     --footer-text-color: rgb(0, 0, 0);
     --footer-color: rgb(175, 173, 173);
     --html-color: rgb(175, 173, 173);
+    --clear-color: rgb(181, 64, 64);
 }
 
 *{
@@ -255,5 +257,8 @@ button {
     bottom: 0px;
     padding: 3px;
     color: var(--footer-text-color);
-    background-color: var(--footer-color);
+}
+
+#clear {
+    color: var(--clear-color);
 }
