@@ -1,22 +1,26 @@
 :root{
     --body-background-color: linear-gradient(
-        45deg,
-        hsl(0deg 0% 4%) 0%,
-        hsl(226deg 4% 6%) 20%,
-        #111113 40%,
-        hsl(226deg 6% 8%) 60%,
-        hsl(225deg 7% 9%) 80%,
-        hsl(225deg 8% 10%) 100%
+        220deg,
+        hsl(240deg 10% 10%) 0%,
+        hsl(241deg 10% 9%) 10%,
+        hsl(242deg 10% 8%) 20%,
+        hsl(241deg 10% 7%) 32%,
+        hsl(241deg 10% 6%) 45%,
+        hsl(241deg 11% 5%) 59%,
+        hsl(240deg 12% 4%) 76%,
+        hsl(240deg 9% 2%) 98%
       );
     --title-color: radial-gradient(#eeeeee, rgba(255, 230, 128, 0) 40%), conic-gradient(from 90deg at 70% 100%, #e4e4e4, #d0d0d0, #848484, #bdbdbd, #797979, #b0b0b0, #d5d5d5);
     --calc-background-color: linear-gradient(
-        45deg,
-        hsl(240deg 5% 12%) 5%,
-        hsl(240deg 5% 12%) 41%,
-        hsl(240deg 5% 13%) 64%,
-        hsl(240deg 5% 13%) 82%,
-        hsl(240deg 5% 13%) 95%,
-        hsl(240deg 5% 13%) 100%
+        40deg,
+        hsl(240deg 8% 8%) 1%,
+        hsl(240deg 7% 9%) 19%,
+        hsl(240deg 7% 9%) 31%,
+        hsl(239deg 7% 10%) 42%,
+        hsl(239deg 7% 11%) 54%,
+        hsl(240deg 7% 12%) 67%,
+        hsl(240deg 7% 13%) 82%,
+        hsl(240deg 7% 14%) 100%
       );
     --button-border-color: 2px solid rgba(0, 0, 0, 0.244);
     --button-text-color: white;
@@ -24,8 +28,8 @@
     --equals-button-color: #2e53c0;
     --main-input-color: white;
     --top-input-color: rgba(144, 144, 144, 0.717);
-    --theme-switch-color: rgb(40, 40, 40);
-    --theme-switch-svg: rgb(144, 144, 144);
+    --theme-switch-color: rgb(29, 29, 29);
+    --theme-switch-svg: rgb(115, 115, 115);
     --footer-text-color: rgb(58, 59, 65);
     --footer-color: #121214;
     --html-color: #121214;
@@ -253,12 +257,13 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5px;
     width: 100%;
     position: fixed;
     bottom: 0px;
-    padding: 3px;
+    padding: 5px;
     color: var(--footer-text-color);
+    gap: 5px;
+    background-color: #00000000;
 }
 
 #clear {
@@ -267,4 +272,15 @@ button {
 
 #clear:active {
     color: var(--clear-color-active)
+}
+
+#github {
+    width: 23px;
+    height: 23px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#github:hover {
+    transform: scale(1.1);
 }
